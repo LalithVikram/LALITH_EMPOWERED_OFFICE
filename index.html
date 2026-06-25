@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEO (LALITH EMPOWERED OFFICE)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .neon-border-indigo { box-shadow: 0 0 20px rgba(99, 102, 241, 0.25), inset 0 0 15px rgba(99, 102, 241, 0.1); }
+        .neon-text-green { text-shadow: 0 0 10px rgba(52, 211, 153, 0.6); }
+        .neon-text-indigo { text-shadow: 0 0 10px rgba(129, 140, 248, 0.6); }
+        .cyber-grid {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96)), 
+                              linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 25px 25px, 25px 25px;
+        }
+    </style>
+</head>
+<body class="cyber-grid text-slate-100 font-mono antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+    <!-- HEADER -->
+    <header class="border-b border-indigo-500/30 bg-slate-950/80 backdrop-blur sticky top-0 z-50 shadow-xl shadow-indigo-500/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-3 rounded-xl text-white font-black tracking-widest text-2xl shadow-xl shadow-indigo-500/40 border border-indigo-400/30">
+                    LEO
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-indigo-400">
+                        LEO (LALITH EMPOWERED OFFICE)
+                    </h1>
+                    <p class="text-xs text-slate-400 tracking-wider">
+                        AUTHOR: <span class="text-indigo-400 font-bold tracking-widest uppercase neon-text-indigo">S.LALITH</span>
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-xs font-bold bg-emerald-500/10 text-emerald-400 px-4 py-2 rounded-lg border border-emerald-500/30 shadow-md shadow-emerald-500/5">
+                    ZERO-TRUST ARCHITECTURE : ENGAGED
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN INTERFACE -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- LEFT CONTROL BOARD -->
+        <div class="space-y-6 lg:col-span-1">
+            
+            <div class="bg-slate-900/90 border border-slate-800/90 rounded-2xl p-6 shadow-2xl neon-border-indigo backdrop-blur-md">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">
+                    [>] CORE RUNTIMES
+                </h2>
+                <div class="space-y-3">
+                    <button id="lang-python" class="w-full text-left p-4 rounded-xl bg-indigo-600/10 border border-indigo-500/40 text-indigo-300 flex items-center justify-between hover:bg-indigo-600/20 hover:border-indigo-400 transition-all cursor-pointer">
+                        <span class="font-bold tracking-wide">Python ML Studio</span>
+                        <span class="text-xs text-indigo-500">&gt;</span>
+                    </button>
+                    <button id="lang-java" class="w-full text-left p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-400 flex items-center justify-between hover:bg-slate-800/40 hover:border-slate-700 transition-all cursor-pointer">
+                        <span class="font-bold tracking-wide">Java Enterprise</span>
+                        <span class="text-xs text-slate-600">&gt;</span>
+                    </button>
+                    <button id="lang-bash" class="w-full text-left p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-400 flex items-center justify-between hover:bg-slate-800/40 hover:border-slate-700 transition-all cursor-pointer">
+                        <span class="font-bold tracking-wide">Linux Network Audit</span>
+                        <span class="text-xs text-slate-600">&gt;</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SECURITY & S3 MODULES -->
+            <div class="bg-slate-900/90 border border-slate-800/90 rounded-2xl p-6 shadow-2xl neon-border-indigo backdrop-blur-md space-y-4">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400">
+                    [#] ADVANCED UTILITIES
+                </h2>
+                
+                <button id="btn-port-scan" class="w-full text-left p-4 bg-gradient-to-r from-slate-950 to-slate-900 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition-all cursor-pointer">
+                    <div class="flex justify-between items-center mb-1">
+                        <p class="text-[10px] text-emerald-400 tracking-wider font-bold">CYBER SECURITY PORT</p>
+                        <span class="text-[9px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">LIVE AUDIT</span>
+                    </div>
+                    <p class="text-sm font-bold text-slate-200">Audit Perimeter Firewall</p>
+                </button>
+
+                <button id="btn-optimize" class="w-full text-left p-4 bg-gradient-to-r from-slate-950 to-slate-900 rounded-xl border border-slate-800 hover:border-orange-500/40 transition-all cursor-pointer">
+                    <div class="flex justify-between items-center mb-1">
+                        <p class="text-[10px] text-orange-400 tracking-wider font-bold">AWS COST LIFECYCLE</p>
+                        <span class="text-[9px] text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20">90% SAVINGS</span>
+                    </div>
+                    <p class="text-sm font-bold text-slate-200">Run S3 Cost Optimizer</p>
+                    <div class="mt-2 w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                        <div id="optimize-progress" class="bg-gradient-to-r from-orange-500 to-amber-400 h-full w-full rounded-full origin-left scale-x-0 transition-transform duration-500"></div>
+                    </div>
+                </button>
+
+                <div class="p-4 bg-slate-950/80 rounded-xl border border-slate-800/60 flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] text-slate-500 tracking-wider">LEO BILLING</p>
+                        <p class="text-md font-extrabold text-emerald-400 neon-text-green">0.00 INR</p>
+                    </div>
+                    <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">FREE TRACK</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: CODE EDITOR & OUTPUT -->
+        <div class="lg:col-span-2 flex flex-col bg-slate-900/90 border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl neon-border-indigo backdrop-blur-md">
+            
+            <div class="bg-slate-950/70 border-b border-slate-800/80 px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                    <span id="editor-filename" class="text-xs font-bold text-slate-400 tracking-widest ml-3 bg-slate-900 px-3 py-1 rounded-md border border-slate-800">script.py</span>
+                </div>
+                <button id="run-btn" class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-black tracking-widest uppercase px-6 py-2.5 rounded-xl border border-indigo-400/20 cursor-pointer">
+                    Inject Core Payload
+                </button>
+            </div>
+            
+            <div class="flex-1 p-6 bg-slate-950/95 relative">
+                <textarea id="code-editor" class="w-full h-72 bg-transparent resize-none outline-none text-indigo-300 focus:ring-0 leading-relaxed font-mono text-sm" spellcheck="false"># LEO (LALITH EMPOWERED OFFICE)
+import os
+
+def check_cloud_savings():
+    author = "S.LALITH"
+    print(f"Executing secure code analysis authorized by Author: {author}")
+    print("Optimization complete: File structure minimized by 90%.")
+
+check_cloud_savings()</textarea>
+            </div>
+
+            <div class="bg-slate-950 border-t border-slate-850 p-6">
+                <div class="text-slate-400 uppercase tracking-widest font-black text-[10px] mb-3 flex items-center justify-between">
+                    <span>Console Log Output</span>
+                    <span id="pipeline-status" class="text-indigo-500 tracking-normal">● PIPELINE ONLINE</span>
+                </div>
+                <div id="console-logs" class="bg-black/90 rounded-xl p-4 text-slate-300 border border-slate-850 h-44 overflow-y-auto space-y-1.5 font-mono text-xs shadow-inner">
+                    <p class="text-slate-600">[SYSTEM] LEO (LALITH EMPOWERED OFFICE) Framework Initialized Successfully.</p>
+                    <p class="text-slate-600">[SYSTEM] Zero-Trust access parameters authenticated under supervision of Author: S.LALITH.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-900 bg-slate-950/50 py-4 text-center text-[10px] text-slate-600 tracking-widest uppercase">
+        <p>&copy; 2026 LEO (LALITH EMPOWERED OFFICE). Author: S.LALITH.</p>
+    </footer>
+
+    <!-- INTERACTION LOGIC JAVASCRIPT -->
+    <script>
+        const API_BASE = "http://127.0.0.1:8000/api/v1";
+        let currentLanguage = "python";
+
+        const consoleLogs = document.getElementById("console-logs");
+        const codeEditor = document.getElementById("code-editor");
+        const runBtn = document.getElementById("run-btn");
+        const filenameDisplay = document.getElementById("editor-filename");
+        const progressMeter = document.getElementById("optimize-progress");
+        const pipelineStatus = document.getElementById("pipeline-status");
+
+        function logToConsole(text, type = "info") {
+            const p = document.createElement("p");
+            if (type === "success") p.className = "text-emerald-400 font-medium neon-text-green";
+            else if (type === "error") p.className = "text-rose-500 font-bold";
+            else if (type === "warning") p.className = "text-amber-400 font-semibold";
+            else p.className = "text-indigo-400/70";
+            
+            p.innerText = `[${new Date().toLocaleTimeString()}] ${text}`;
+            consoleLogs.appendChild(p);
+            consoleLogs.scrollTop = consoleLogs.scrollHeight;
+        }
+
+        // Tab Event Listeners explicitly assigned
+        document.getElementById("lang-python").onclick = function(e) {
+            currentLanguage = "python";
+            filenameDisplay.innerText = "script.py";
+            codeEditor.value = `# LEO (LALITH EMPOWERED OFFICE)\nimport os\n\ndef check_cloud_savings():\n    author = "S.LALITH"\n    print(f"Executing secure code analysis authorized by Author: {author}")\n\ncheck_cloud_savings()`;
+            logToConsole("Switched to Python Studio Environment.");
+            updateActiveButton(this);
+        };
+
+        document.getElementById("lang-java").onclick = function(e) {
+            currentLanguage = "java";
+            filenameDisplay.innerText = "Main.java";
+            codeEditor.value = `// LEO (LALITH EMPOWERED OFFICE)\npublic class Main {\n    public static void main(String[] args) {\n        String author = "S.LALITH";\n        System.out.println("Java Sandbox Engine Active under Author: " + author);\n    }\n}`;
+            logToConsole("Switched to Java Compiler Stack.");
+            updateActiveButton(this);
+        };
+
+        document.getElementById("lang-bash").onclick = function(e) {
+            currentLanguage = "cyber_network";
+            filenameDisplay.innerText = "net_audit.sh";
+            codeEditor.value = `# LEO (LALITH EMPOWERED OFFICE) Defensive Bash\necho "Current Sandbox Author Reference: S.LALITH"\nwhoami\nifconfig || ip address`;
+            logToConsole("Switched to Secure Linux Audit Shell.");
+            updateActiveButton(this);
+        };
+
+        function updateActiveButton(activeBtn) {
+            ["lang-python", "lang-java", "lang-bash"].forEach(id => {
+                const btn = document.getElementById(id);
+                btn.className = "w-full text-left p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-400 flex items-center justify-between hover:bg-slate-800/40 hover:border-slate-700 transition-all cursor-pointer";
+            });
+            activeBtn.className = "w-full text-left p-4 rounded-xl bg-indigo-600/10 border border-indigo-500/40 text-indigo-300 flex items-center justify-between hover:bg-indigo-600/20 hover:border-indigo-400 transition-all cursor-pointer";
+        }
+
+        // Action Buttons
+        runBtn.onclick = async function() {
+            logToConsole(`Packaging script payload deployment via Zero-Trust channels...`);
+            runBtn.disabled = true;
+
+            try {
+                const response = await fetch(`${API_BASE}/execute`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        user_id: "leo_client_user",
+                        language: currentLanguage,
+                        script_code: codeEditor.value
+                    })
+                });
+
+                const data = await response.json();
+                runBtn.disabled = false;
+
+                if (data.status === "success") {
+                    logToConsole(`[SUCCESS] Output verified by Author: ${data.managed_by}`, "success");
+                    logToConsole(data.output, "success");
+                } else {
+                    logToConsole(`[CRITICAL ALERT] Sandbox environment error!`, "error");
+                    logToConsole(data.error || data.detail, "error");
+                }
+            } catch (err) {
+                runBtn.disabled = false;
+                logToConsole(`[CRITICAL] Connection refused by LEO Backend Server. Ensure backend python server is running!`, "error");
+            }
+        };
+
+        document.getElementById("btn-port-scan").onclick = async function() {
+            logToConsole(`Initializing authorized network port verification sweeps...`, "warning");
+            try {
+                const response = await fetch(`${API_BASE}/cyber-port-verify`);
+                const data = await response.json();
+                logToConsole(`[FIREWALL RESPONSE] Status: ${data.status} | Author Ref: ${data.author}`, "success");
+                data.scanned_ports_baseline.forEach(port => {
+                    logToConsole(`-> PORT [${port.port_id}/${port.protocol}] | SERVICE: ${port.assigned_service} -> ${port.current_state}`, "success");
+                });
+            } catch (err) {
+                logToConsole(`[CRITICAL] Failed to map firewall baseline matrices. Core backend API unreachable.`, "error");
+            }
+        };
+
+        document.getElementById("btn-optimize").onclick = async function() {
+            logToConsole(`Triggering S3 Cloud Dynamic Storage Compression Engines...`, "warning");
+            progressMeter.className = "bg-gradient-to-r from-orange-500 to-amber-400 h-full w-full rounded-full origin-left scale-x-100 transition-transform duration-1000";
+            
+            try {
+                const response = await fetch(`${API_BASE}/optimize-storage`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        user_id: "leo_master_admin",
+                        bucket_name: "leo-cloud-vault",
+                        file_key: "heavy_enterprise_dataset_1gb.csv"
+                    })
+                });
+                const data = await response.json();
+                
+                setTimeout(() => {
+                    logToConsole(`[${data.system_branding}] Space Optimization Sync Complete!`, "success");
+                    logToConsole(`Author Verification: ${data.managed_by}`, "success");
+                    logToConsole(`Telemetry metrics: ${data.compression_telemetry.initial_data_size} -> compressed down to ${data.compression_telemetry.optimized_data_size} (${data.compression_telemetry.storage_reduction_ratio} Space Cleared)`, "success");
+                    logToConsole(`Financial Impact: Costs cut by ${data.financial_audit_metrics.net_cloud_budget_savings_percentage}! User Billing Profile: ${data.user_cost}`, "success");
+                    progressMeter.className = "bg-gradient-to-r from-orange-500 to-amber-400 h-full w-full rounded-full origin-left scale-x-0";
+                }, 1100);
+            } catch (err) {
+                logToConsole(`[CRITICAL] Cost optimization matrix stream failure. Check API integrations.`, "error");
+                progressMeter.className = "bg-gradient-to-r from-orange-500 to-amber-400 h-full w-full rounded-full origin-left scale-x-0";
+            }
+        };
+    </script>
+</body>
+</html>
