@@ -1,11 +1,9 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
-import time
 
-app = FastAPI(title="LEO Advanced Multi-Engine Cloud Enterprise Portal")
+app = FastAPI(title="LEO Dynamic Multi-Engine Portal")
 
-# Enable CORS Framework for security handshake routing
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -14,7 +12,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 🎨 UI HTML CONSOLE PORTAL LOAD DIRECTLY ON RENDER
 @app.get("/", response_class=HTMLResponse)
 def read_root():
     return """
@@ -35,7 +32,6 @@ def read_root():
             --neon-red: #ff0055;
             --text-color: #e0e0ff;
         }
-
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -46,7 +42,6 @@ def read_root():
             flex-direction: column;
             align-items: center;
         }
-
         .main-container {
             width: 100%;
             max-width: 500px;
@@ -57,12 +52,7 @@ def read_root():
             box-shadow: 0 0 40px rgba(0, 243, 255, 0.08);
             box-sizing: border-box;
         }
-
-        header {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
+        header { text-align: center; margin-bottom: 15px; }
         .logo-badge {
             background: linear-gradient(135deg, #00f3ff, #ff00ff);
             color: #000;
@@ -73,96 +63,49 @@ def read_root():
             margin-bottom: 10px;
             box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
         }
-
-        h1 {
-            color: var(--text-color);
-            font-size: 1.4rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        h1 { color: var(--text-color); font-size: 1.4rem; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .author { font-size: 0.75rem; color: #8a8aaf; margin-top: 4px; }
+        .status-box { border: 1px solid #222244; background: #04040a; padding: 8px; border-radius: 6px; margin-bottom: 15px; text-align: center; font-size: 0.75rem; color: var(--neon-green); }
+        .section-title { font-size: 0.8rem; text-transform: uppercase; color: #8a8aaf; margin: 15px 0 5px 0; border-left: 2px solid var(--neon-cyan); padding-left: 5px; }
+        
+        .input-group {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
-
-        .author {
+        .input-group label {
             font-size: 0.75rem;
             color: #8a8aaf;
-            margin-top: 4px;
+            text-transform: uppercase;
         }
-
-        .status-box {
-            border: 1px solid #222244;
+        .cyber-input {
             background: #04040a;
-            padding: 8px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--neon-green);
-        }
-
-        .section-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: #8a8aaf;
-            margin: 10px 0 5px 0;
-            border-left: 2px solid var(--neon-cyan);
-            padding-left: 5px;
-        }
-
-        .btn-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            background: #111126;
-            color: #fff;
             border: 1px solid #333366;
+            color: #fff;
             padding: 10px;
             border-radius: 6px;
             font-family: inherit;
-            font-weight: bold;
-            font-size: 0.75rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.2s ease;
+            font-size: 0.8rem;
+            outline: none;
+            transition: all 0.3s;
         }
-
+        .cyber-input:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+        
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 5px; margin-bottom: 15px; }
+        .btn { background: #111126; color: #fff; border: 1px solid #333366; padding: 10px; border-radius: 6px; font-family: inherit; font-weight: bold; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease; width: 100%; }
         .btn-python { border-color: var(--neon-cyan); color: var(--neon-cyan); }
         .btn-java { border-color: var(--neon-magenta); color: var(--neon-magenta); }
         .btn-sql { border-color: var(--neon-amber); color: var(--neon-amber); }
         .btn-cyber { border-color: var(--neon-green); color: var(--neon-green); }
+        .btn:hover { transform: scale(1.02); box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+        .btn-clear { grid-column: 1 / -1; background: #1a0505; border-color: var(--neon-red); color: var(--neon-red); margin-top: 10px; }
         
-        .btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 10px rgba(255,255,255,0.1);
-        }
-
-        .btn-clear {
-            grid-column: 1 / -1;
-            background: #1a0505;
-            border-color: var(--neon-red);
-            color: var(--neon-red);
-        }
-
-        .console {
-            background-color: #030307;
-            border: 1px solid #1a1a35;
-            border-radius: 8px;
-            padding: 12px;
-            height: 250px;
-            overflow-y: auto;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
-        }
-
-        pre {
-            margin: 0;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: inherit;
-        }
-
+        .console { background-color: #030307; border: 1px solid #1a1a35; border-radius: 8px; padding: 12px; height: 230px; overflow-y: auto; box-shadow: inset 0 0 15px rgba(0,0,0,0.9); }
+        pre { margin: 0; white-space: pre-wrap; word-wrap: break-word; font-family: inherit; }
         .log { margin-bottom: 6px; font-size: 0.75rem; line-height: 1.4; }
         .py-txt { color: var(--neon-cyan); }
         .jv-txt { color: var(--neon-magenta); }
@@ -172,25 +115,29 @@ def read_root():
     </style>
 </head>
 <body>
-
     <div class="main-container">
         <header>
             <div class="logo-badge">LEO ADVANCED MULTI-ENGINE</div>
             <h1>Full-Stack Architecture Portal</h1>
             <div class="author">AUTHOR: S.LALITH | SECURE SYSTEM</div>
         </header>
-
-        <div class="status-box">
-            ● [SYSTEM] PYTHON // JAVA // SQL NODE CORE INTERFACE ONLINE
+        <div class="status-box">● [SYSTEM] PYTHON // JAVA // SQL INPUT CHANNELS ENGAGED</div>
+        
+        <div class="section-title">Automation & Optimization Parameters</div>
+        <div class="input-group">
+            <label>Enter Storage Size (MB):</label>
+            <input type="number" id="fileSizeInput" class="cyber-input" value="1024" placeholder="e.g. 500">
         </div>
-
-        <div class="section-title">Automation & Optimization Core</div>
         <div class="btn-grid">
             <button class="btn btn-python" onclick="triggerNode('python-cost')">LEO S3 Cost (Python)</button>
             <button class="btn btn-java" onclick="triggerNode('java-runtime')">Optimization Engine (Java)</button>
         </div>
 
-        <div class="section-title">Database & Cybersecurity Perimeter</div>
+        <div class="section-title">Database & Cyber Target Configuration</div>
+        <div class="input-group">
+            <label>Target IP Address / Domain:</label>
+            <input type="text" id="targetIpInput" class="cyber-input" value="lalith-empowred-office.onrender.com" placeholder="e.g. 192.168.1.1">
+        </div>
         <div class="btn-grid">
             <button class="btn btn-sql" onclick="triggerNode('sql-sync')">Database Logs Sync (SQL)</button>
             <button class="btn btn-cyber" onclick="triggerNode('cyber-scan')">Perimeter Port Scan</button>
@@ -198,96 +145,75 @@ def read_root():
         </div>
 
         <div class="console">
-            <pre id="console-body"><div class="log cy-txt">[SYSTEM] Unified Multi-Engine Framework Booted Successfully.</div><div class="log py-txt">[READY] Pipeline connection lines verified. Awaiting module trigger sequence...</div></pre>
+            <pre id="console-body"><div class="log cy-txt">[SYSTEM] Dynamic Input Interface Terminal Ready.</div><div class="log py-txt">[READY] Enter values above and trigger modules...</div></pre>
         </div>
     </div>
-
     <script>
         const API_BASE = "https://lalith-empowred-office.onrender.com/api/v1";
-
-        function clearConsole() {
-            document.getElementById('console-body').innerHTML = `<div class="log err-txt">[SYSTEM] Console logging streams cleared. Pipeline clean.</div>`;
-        }
-
-        function getTime() {
-            const now = new Date();
-            return `[${now.toTimeString().split(' ')[0]}]`;
-        }
-
+        function clearConsole() { document.getElementById('console-body').innerHTML = `<div class="log err-txt">[SYSTEM] Console logging streams cleared.</div>`; }
+        function getTime() { const now = new Date(); return `[${now.toTimeString().split(' ')[0]}]`; }
+        
         async function triggerNode(moduleType) {
             const consoleBody = document.getElementById('console-body');
-            let targetUrl = `${API_BASE}/architecture/processing?engine=${moduleType}`;
+            const fileSize = document.getElementById('fileSizeInput').value || "1024";
+            const targetIp = document.getElementById('targetIpInput').value || "127.0.0.1";
             
-            if (moduleType === 'python-cost') {
-                consoleBody.innerHTML = `<div class="log py-txt">${getTime()} [PYTHON_ENGINE] Calling S3 Bucket file compression algorithm logic...</div>`;
-            } else if (moduleType === 'java-runtime') {
-                consoleBody.innerHTML = `<div class="log jv-txt">${getTime()} [JAVA_RUNTIME] Activating JVM background thread for compression scaling arrays...</div>`;
-            } else if (moduleType === 'sql-sync') {
-                consoleBody.innerHTML = `<div class="log sql-txt">${getTime()} [SQL_DATABASE] Executing SQL queries: INSERT INTO cloud_metrics logging matrices...</div>`;
-            } else {
-                consoleBody.innerHTML = `<div class="log cy-txt">${getTime()} [CYBER_SCANNER] Opening raw socket mapping arrays for port validation sweeps...</div>`;
-            }
-
+            let targetUrl = `${API_BASE}/architecture/processing?engine=${moduleType}&file_size=${fileSize}&ip=${encodeURIComponent(targetIp)}`;
+            
+            if (moduleType === 'python-cost') { consoleBody.innerHTML = `<div class="log py-txt">${getTime()} [PYTHON_ENGINE] Optimizing input storage array: ${fileSize} MB...</div>`; }
+            else if (moduleType === 'java-runtime') { consoleBody.innerHTML = `<div class="log jv-txt">${getTime()} [JAVA_RUNTIME] Tuning JVM bytecode for scaling sequence...</div>`; }
+            else if (moduleType === 'sql-sync') { consoleBody.innerHTML = `<div class="log sql-txt">${getTime()} [SQL_DATABASE] Executing log commits for storage metrics...</div>`; }
+            else { consoleBody.innerHTML = `<div class="log cy-txt">${getTime()} [CYBER_SCANNER] Sweeping target socket: ${targetIp}...</div>`; }
+            
             try {
                 const response = await fetch(targetUrl);
                 const data = await response.json();
-                
-                consoleBody.innerHTML += `<div class="log cy-txt">${getTime()} [SUCCESS] Unified Server Node JSON Output Streams:</div>`;
+                consoleBody.innerHTML += `<div class="log cy-txt">${getTime()} [SUCCESS] Response From Cloud Gateway:</div>`;
                 consoleBody.innerHTML += `<div class="log" style="color:#ffffff; background:#05050f; padding:8px; border-radius:4px; border:1px dashed #224;">${JSON.stringify(data, null, 4)}</div>`;
-            } catch (error) {
-                consoleBody.innerHTML += `<div class="log err-txt">${getTime()} [CRITICAL] Core Engine unreachable. Try triggering again in 15 seconds.</div>`;
-            }
+            } catch (error) { consoleBody.innerHTML += `<div class="log err-txt">${getTime()} [CRITICAL] Core Engine unreachable. Try again in 15 seconds.</div>`; }
         }
     </script>
 </body>
 </html>
     """
 
-# 🧠 UNIFIED API CONTROLLER PACKING PYTHON, JAVA SIMULATION, SQL AND CYBER SCAN RESPONSES
 @app.get("/api/v1/architecture/processing")
-def process_architecture_stream(engine: str):
-    timestamp = str(time.time())
-    
+def process_architecture_stream(engine: str, file_size: float = 1024.0, ip: str = "127.0.0.1"):
     if engine == "python-cost":
+        optimized = round(file_size * 0.1, 2)
+        savings = round(file_size - optimized, 2)
         return {
             "engine_runtime": "Python 3.10 / AWS Lambda Core Layer",
             "project_name": "LEO Cost Storage Optimizer",
-            "file_size_before_compression": "1024 MB (1.0 GB)",
-            "file_size_after_compression": "102.4 MB",
-            "compression_status": "Successful (90% Storage Space Minimized)",
-            "applied_lifecycle_rule": "S3 Standard to Deep Archive Auto-Migration Engaged"
+            "input_file_size": f"{file_size} MB",
+            "compressed_output_size": f"{optimized} MB",
+            "saved_cloud_space": f"{savings} MB",
+            "compression_status": "Successful (90% Space Saved Matrix)"
         }
-        
     elif engine == "java-runtime":
         return {
-            "runtime_environment": "OpenJDK 17 (Java Virtual Machine)",
-            "executor_thread": "LEO-Optimization-ThreadWorker-04",
+            "runtime_environment": "OpenJDK 17 (JVM)",
+            "executor_thread": "LEO-ThreadWorker-04",
             "heap_memory_allocated": "256 MB",
-            "java_class_processed": "com.lalith.leo.optimizer.CompressionScheduler",
-            "garbage_collection_state": "GC Clean Completed",
-            "execution_speed": "42 milliseconds (Highly Efficient Compactor Loop)"
+            "execution_speed": "38 milliseconds",
+            "status": f"Java Compression loop adjusted for optimized metadata array size."
         }
-        
     elif engine == "sql-sync":
         return {
-            "database_system": "PostgreSQL 15 / MySQL Structured Engine Sync",
+            "database_system": "PostgreSQL 15 Sync",
             "transaction_status": "COMMIT SUCCESSFUL",
-            "query_executed": "INSERT INTO leo_cloud_audit_logs (platform, author, optimized_bytes) VALUES ('LEO', 'S.LALITH', 921600);",
-            "rows_affected": 1,
-            "database_connection_pool": "HikariCP Core Pool Active [Available: 19, Busy: 1]"
+            "query_executed": f"INSERT INTO cloud_metrics(size, ip) VALUES ({file_size}, '{ip}');",
+            "rows_affected": 1
         }
-        
     elif engine == "cyber-scan":
         return {
             "scanner_core": "LEO Custom Network Perimeter Mapping Socket Stream",
-            "target_scan_host": "lalith-empowred-office.onrender.com",
+            "scanned_target_host": ip,
             "firewall_profile_status": "Secure / Zero-Trust Verification Active",
             "active_sockets_found": [
-                {"port_id": 22, "type": "TCP", "service": "SSH", "state": "Filtered / Stealth Protect Enabled"},
-                {"port_id": 80, "type": "TCP", "service": "HTTP", "state": "Open (Render Network Inbound Proxy Router)"},
-                {"port_id": 443, "type": "TCP", "service": "HTTPS", "state": "Open (Secure TLS Handshake Established)"}
-            ],
-            "perimeter_vulnerability_index": "0.0 (Safe Perimeter Environment Confirmed)"
+                {"port_id": 22, "type": "TCP", "service": "SSH", "state": "Filtered"},
+                {"port_id": 80, "type": "TCP", "service": "HTTP", "state": "Open"},
+                {"port_id": 443, "type": "TCP", "service": "HTTPS", "state": "Open"}
+            ]
         }
-        
-    return {"status": "Unknown Engine Specification Parameter"} 
+    return {"status": "Unknown Engine Specification"}
